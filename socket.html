@@ -1,0 +1,62 @@
+<html>
+<head>
+<!-- A simple HTML page with jQuery logic to connect to a socket.io instance and receive updates. -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://127.0.0.1:8000/socket.io/socket.io.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+	// Create a new connection
+	var socket = new io.Socket('127.0.0.1', {
+		port : 8000
+	});
+	socket.connect();
+
+	// Display connected text.
+	socket.on('connect', function() {
+		console.log('Connected to server...');
+		$("#connect").append("<p>Connected to Server!</p>");
+	});
+
+	// When we get a message, add the appropirate CSS class.
+	socket.on('message', function(data) {
+		console.log('Received a message from the server: ' + data);
+		$("#color").addClass(data);
+	});
+	
+});
+</script>
+<style type="text/css">
+
+body {
+	background-color: red;
+	text-align: center;
+}
+
+h2 {
+	margin-top: 30px;	
+}
+
+.blue {
+	background-color: blue;
+}
+
+.green {
+	background-color: green;
+}
+
+.yellow {
+	background-color: yellow;
+}
+
+.white {
+	background-color: white;
+}
+
+</style>
+</head>
+<body id="color">
+<h2>Redis PubSub + Socket.io Test</h2>
+<div id="connect"></div>
+</body>
+</html>
