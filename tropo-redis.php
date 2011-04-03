@@ -2,13 +2,13 @@
 
 /*
  * A simple PHP script to allow speech recongition of color selections.
- * Publishes selections on a Tropoi channel through a persistent socket connection.
+ * Publishes selections on a Tropo channel through a persistent socket connection.
  * 
  */
 
 // Redis settings
 define("REDIS_HOST", "");
-define("REDIS_PORT", 0000);
+define("REDIS_PORT", 6379);
 define("REDIS_PASS", "");
 
 $redis = new Redis(REDIS_HOST, REDIS_PORT);
