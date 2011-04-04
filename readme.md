@@ -23,6 +23,11 @@ If you are not running your socket.js server on localhost at port 8000, you will
 Once your socket.js server is running, load the socket.html page in your web browser.
 You should now be able to call into your Tropo application (via the Skype number auto provisioned for your app, or by adding a phone number). 
 
+Prerequisites
+=============
+
+The Node.js script in this example uses the [node-redis module](https://github.com/mranney/node_redis) by Matt Ranney and [socket.io](https://github.com/learnboost/socket.io-node) by LearnBoost 
+
 Feedback
 ========
 
