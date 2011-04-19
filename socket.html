@@ -5,6 +5,7 @@
 <script type="text/javascript" src="http://127.0.0.1:8000/socket.io/socket.io.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
+	var olddata = "red";
 
 	// Create a new connection
 	var socket = new io.Socket('127.0.0.1', {
@@ -21,7 +22,8 @@ $(document).ready(function() {
 	// When we get a message, add the appropirate CSS class.
 	socket.on('message', function(data) {
 		console.log('Received a message from the server: ' + data);
-		$("#color").addClass(data);
+			$("#color").removeClass(olddata).addClass(data);
+			olddata = data;
 	});
 	
 });

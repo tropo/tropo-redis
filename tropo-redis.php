@@ -7,9 +7,9 @@
  */
 
 // Redis settings
-define("REDIS_HOST", "");
-define("REDIS_PORT", 6379);
-define("REDIS_PASS", "");
+define("REDIS_HOST", "bass.redistogo.com");
+define("REDIS_PORT", 9219);
+define("REDIS_PASS", "1604d5037f6fd79b71f158019a1eff04");
 
 $redis = new Redis(REDIS_HOST, REDIS_PORT);
 $redis->connect();

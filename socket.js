@@ -9,16 +9,27 @@ var io = require('socket.io');
 var redis = require('redis');
 var http = require('http');  
 var sys = require('sys');
+var fs = require('fs'),
+    index;
+ 
+fs.readFile('./socket.html', function (err, data) {
+    if (err) {
+        throw err;
+    }
+    index = data;
+});
 
 // Redis config settings.
-var redisHost = '';
-var redisPort = 6379;
-var redisPass = '';
+var redisHost = 'bass.redistogo.com';
+var redisPort = 9219;
+var redisPass = '1604d5037f6fd79b71f158019a1eff04';
 
 // Create a web server for Socket IO to use.
 var server = http.createServer(function(req, res){
  res.writeHead(200, {'Content-Type': 'text/html'}); 
- res.end('<h1>This is a node web server.</h1>'); 
+ // res.end('<h1>This is a node web server.</h1>'); 
+  res.write(index);
+  res.end();
 });
 
 // Specify the port the server should listen on.
