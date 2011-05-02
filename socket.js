@@ -20,9 +20,9 @@ fs.readFile('./socket.html', function (err, data) {
 });
 
 // Redis config settings.
-var redisHost = 'bass.redistogo.com';
-var redisPort = 9219;
-var redisPass = '1604d5037f6fd79b71f158019a1eff04';
+var redisHost = '';
+var redisPort = 6379;
+var redisPass = '';
 
 // Create a web server for Socket IO to use.
 var server = http.createServer(function(req, res){
